@@ -55,10 +55,8 @@ set(ICU_PREFIX			"${CMAKE_CURRENT_BINARY_DIR}/icu")
 		
 		ExternalProject_add(icu
 			PREFIX ${ICU_PREFIX}
-			URL "http://download.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.zip"
-			URL_MD5 "f797503ecaebf1d38920013dc7893066"
-			#PATCH_COMMAND ${CMAKE_COMMAND} -E copy_directory <BINARY_DIR>/source <BINARY_DIR>
-			#PATCH_COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/LICENSE <BINARY_DIR>/../
+			URL "http://download.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz"
+			URL_MD5 "976734806026a4ef8bdd17937c8898b9"
 			CONFIGURE_COMMAND cd <BINARY_DIR>/source && ./runConfigureICU  ${PLATFORM} --prefix=${CMAKE_CURRENT_BINARY_DIR} ${BUILD_TYPE_STRING} ${LINK_TYPE_STRING}
 			BUILD_COMMAND cd <BINARY_DIR>/source && ${MAKE_COMMAND}
 			INSTALL_COMMAND cd <BINARY_DIR>/source && make install 
